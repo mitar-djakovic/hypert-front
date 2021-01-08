@@ -4,7 +4,6 @@ import App from './app';
 import './index.css';
 
 if (module.hot) {
-  console.log('hot');
   module.hot.accept();
 }
 
