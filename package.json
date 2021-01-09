@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mitar-djakovic/frenki-front.git"
+    "url": "git+https://github.com/mitar-djakovic/hypert-front.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mitar-djakovic/frenki-front/issues"
+    "url": "https://github.com/mitar-djakovic/hypert-front/issues"
   },
-  "homepage": "https://github.com/mitar-djakovic/frenki-front#readme",
+  "homepage": "https://github.com/mitar-djakovic/hypert-front#readme",
   "dependencies": {
     "aphrodite": "^2.4.0",
     "axios": "^0.21.1",
