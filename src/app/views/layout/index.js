@@ -1,33 +1,18 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { css } from 'aphrodite';
 import { routes } from '../../routes';
+
+import SideNav from '../../components/organisms/sidenav';
+import TopNav from '../../components/organisms/topnav';
+import { styles } from './style';
 
 const Layout = () => (
   <div>
+    <TopNav />
     <div style={{ display: 'flex' }}>
-      <div
-        style={{
-          padding: '10px',
-          width: '40%',
-          background: 'pink',
-        }}
-      >
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/projects">Projects</Link>
-          </li>
-          <li>
-            <Link to="/chat">Chat</Link>
-          </li>
-          <li>
-            <Link to="/calendar">Calendar</Link>
-          </li>
-        </ul>
-      </div>
-      <div style={{ flex: 1, padding: '10px', backgroundColor: 'red' }}>
+      <SideNav />
+      <div className={css(styles.view)}>
         <Switch>
           {routes.map((route, index) => (
             <Route
