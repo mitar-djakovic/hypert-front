@@ -16,16 +16,16 @@ const SideNav = () => (
   >
     <ul className={css(styles.navigation)}>
       <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/"><AiFillHome size={iconOptions.size} /></Link>
+        <Link className={css(styles.navAnchor)} to="/app/home"><AiFillHome size={iconOptions.size} /></Link>
       </li>
       <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/projects"><AiOutlineAppstore size={iconOptions.size} /></Link>
+        <Link className={css(styles.navAnchor)} to="/app/projects"><AiOutlineAppstore size={iconOptions.size} /></Link>
       </li>
       <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/chat"><AiFillWechat size={iconOptions.size} /></Link>
+        <Link className={css(styles.navAnchor)} to="/app/chat"><AiFillWechat size={iconOptions.size} /></Link>
       </li>
       <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/calendar"><AiOutlineCalendar size={iconOptions.size} /></Link>
+        <Link className={css(styles.navAnchor)} to="/app/calendar"><AiOutlineCalendar size={iconOptions.size} /></Link>
       </li>
     </ul>
   </div>

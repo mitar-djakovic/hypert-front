@@ -1,15 +1,13 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, Switch, Route, Link,
+  BrowserRouter as Router,
 } from 'react-router-dom';
 
-import Layout from './views/layout';
+import Routes from './routes';
 
 const App = () => (
   <Router>
-    <Switch>
-      <Layout />
-    </Switch>
+    <Routes />
   </Router>
 );
 
