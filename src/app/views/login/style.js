@@ -1,0 +1,110 @@
+import { StyleSheet } from 'aphrodite';
+
+export const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100vh',
+    display: 'flex',
+    position: 'relative',
+  },
+  changeForm: {
+    position: 'absolute',
+    right: 'calc(50% + 40px)',
+    top: 20,
+    color: '#1D37AF',
+    cursor: 'pointer',
+  },
+  block: {
+    width: '50%',
+  },
+  leftBlock: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  rightBlock: {
+    backgroundColor: '#1D37AF',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  image: {
+    width: '60%',
+  },
+  circle: {
+    borderRadius: '50%',
+    position: 'absolute',
+  },
+  firstYellowCircle: {
+    backgroundColor: '#FFE483',
+    width: 100,
+    height: 100,
+    left: 80,
+    top: 220,
+  },
+  secondYellowCircle: {
+    backgroundColor: '#FFE483',
+    width: 25,
+    height: 25,
+    right: 80,
+    top: 260,
+  },
+  thirdYellowCircle: {
+    backgroundColor: '#FFE483',
+    width: 25,
+    height: 25,
+    left: 180,
+    top: 60,
+  },
+  fourthYellowCircle: {
+    backgroundColor: '#FFE483',
+    width: 25,
+    height: 25,
+    left: 180,
+    bottom: 170,
+  },
+  firstGreenCircle: {
+    backgroundColor: '#6FCF97',
+    width: 300,
+    height: 300,
+    right: -100,
+    top: -200,
+  },
+  secondGreenCircle: {
+    backgroundColor: '#6FCF97',
+    width: 25,
+    height: 25,
+    left: 180,
+    top: '50%',
+  },
+  thirdGreenCircle: {
+    backgroundColor: '#6FCF97',
+    width: 50,
+    height: 50,
+    left: 100,
+    bottom: 40,
+  },
+  fourthGreenCircle: {
+    backgroundColor: '#80D7D9',
+    width: 80,
+    height: 80,
+    right: 30,
+    bottom: 190,
+  },
+  firstPinkCircle: {
+    backgroundColor: '#FFD1C8',
+    width: 70,
+    height: 70,
+    top: 70,
+    right: '30%',
+  },
+  secondPinkCircle: {
+    backgroundColor: '#F7A5A5',
+    width: 35,
+    height: 35,
+    bottom: 200,
+    right: '38%',
+  },
+});

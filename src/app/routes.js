@@ -6,6 +6,7 @@ import Calendar from './views/calendar';
 import Chat from './views/chat';
 import AppLayout from './layout/appLayout';
 import AuthLayout from './layout/authLayout';
+import Login from './views/login';
 
 const routesConfig = (user) => {
   const adminRoutesConfig = [
@@ -23,7 +24,7 @@ const routesConfig = (user) => {
         {
           path: '/login',
           exact: true,
-          component: () => <div>Login</div>,
+          component: () => <Login />,
           key: 3,
         },
       ],
@@ -82,15 +83,13 @@ const renderRoutes = (routes) => (routes ? (
           path={route.path}
           exact={route.exact}
           render={(props) => (
-            <>
-              <Layout>
-                {route.routes ? (
-                  renderRoutes(route.routes)
-                ) : (
-                  <Component {...props} />
-                )}
-              </Layout>
-            </>
+            <Layout>
+              {route.routes ? (
+                renderRoutes(route.routes)
+              ) : (
+                <Component {...props} />
+              )}
+            </Layout>
           )}
         />
       );
