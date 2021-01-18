@@ -11,6 +11,7 @@ const Login = () => {
   const [loginFormActive, setLoginFormActive] = useState(false);
   const history = useHistory();
   const token = useSelector((state) => state.auth.token);
+  const loading = useSelector((state) => state.auth.loading);
 
   useEffect(() => {
     if (token) {
@@ -22,8 +23,9 @@ const Login = () => {
     <div className={css(styles.container)}>
       <p
         className={css(styles.changeForm)}
-        onClick={() => setLoginFormActive(!loginFormActive)}
+        onClick={() => !loading && setLoginFormActive(!loginFormActive)}
         role="presentation"
+
       >
         {loginFormActive ? 'Sign Up' : 'Log In'}
       </p>

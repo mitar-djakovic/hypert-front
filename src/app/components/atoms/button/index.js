@@ -3,7 +3,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { Button } from './style';
 
 export default ({ title, loading }) => (
-  <Button>
-    {loading ? <ClipLoader loading size={14} color="#FFFFFF" /> : title}
+  <Button disabled={loading}>
+    {loading ? <ClipLoader loading size={9.5} color="#FFFFFF" /> : title}
   </Button>
 );

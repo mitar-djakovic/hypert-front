@@ -3,7 +3,7 @@ import { css } from 'aphrodite';
 import {
   Formik, Form,
 } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../atoms/button';
 import Input from '../../atoms/input';
 import { signupSchema } from './validationSchema';
@@ -12,6 +12,7 @@ import { signUp } from '../../../redux/actions/auth';
 
 const SignupForm = () => {
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
   return (
     <Formik
       initialValues={{
@@ -112,7 +113,7 @@ const SignupForm = () => {
             )}
           </div>
           <div className={css(styles.buttonContainer)}>
-            <Button title="Sign up" type="submit" />
+            <Button title="Sign up" type="submit" loading={loading} />
           </div>
         </Form>
       )}
