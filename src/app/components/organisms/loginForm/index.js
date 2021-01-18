@@ -4,7 +4,7 @@ import {
   Formik, Form,
 } from 'formik';
 import { useHistory } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../atoms/button';
 import Input from '../../atoms/input';
 import { signupSchema } from './validationSchema';
@@ -14,7 +14,7 @@ import { logIn } from '../../../redux/actions/auth';
 const LoginForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-
+  const loading = useSelector((state) => state.auth.loading);
   return (
     <Formik
       initialValues={{
@@ -61,7 +61,7 @@ const LoginForm = () => {
             )}
           </div>
           <div className={css(styles.buttonContainer)}>
-            <Button title="Log in" type="submit" />
+            <Button title="Log in" type="submit" loading={loading} />
           </div>
         </Form>
       )}

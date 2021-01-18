@@ -11,12 +11,10 @@ const Login = () => {
   const [loginFormActive, setLoginFormActive] = useState(false);
   const history = useHistory();
   const token = useSelector((state) => state.auth.token);
-  console.log('token', token);
+
   useEffect(() => {
     if (token) {
       history.push('/app/home');
-    } else {
-      history.push('/login');
     }
   }, [token]);
 
