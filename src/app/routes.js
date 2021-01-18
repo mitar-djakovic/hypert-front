@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Projects from './views/projects';
 import Home from './views/home';
 import Calendar from './views/calendar';
@@ -8,12 +9,12 @@ import AppLayout from './layout/appLayout';
 import AuthLayout from './layout/authLayout';
 import Login from './views/login';
 
-const routesConfig = (user) => {
+const routesConfig = (token) => {
   const adminRoutesConfig = [
     {
       path: '/',
       exact: true,
-      component: () => <Redirect to="/app" />,
+      component: () => (token ? <Redirect to="/app" /> : <Redirect to="/login" />),
       key: 1,
     },
     {
@@ -98,8 +99,8 @@ const renderRoutes = (routes) => (routes ? (
 ) : null);
 
 function Routes() {
-  const user = 'Mitar';
-  return renderRoutes(routesConfig(user));
+  const token = useSelector((state) => state.auth.token);
+  return renderRoutes(routesConfig(token));
 }
 
 export default Routes;

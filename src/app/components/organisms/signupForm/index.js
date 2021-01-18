@@ -15,11 +15,11 @@ const SignupForm = () => {
   return (
     <Formik
       initialValues={{
-        firstName: 'Mitar',
-        lastName: 'Djakovic',
-        email: 'mitar-djakovic2401993@hotmail.com',
-        password: '123456',
-        repeatPassword: '123456',
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        repeatPassword: '',
       }}
       onSubmit={(values) => {
         dispatch(signUp(

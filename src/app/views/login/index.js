@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import { css } from 'aphrodite';
 import { styles } from './style';
 import SignupFormWrapper from '../../components/templates/signupFormWrapper';
@@ -7,6 +9,16 @@ import { loginImg } from '../../../assets';
 
 const Login = () => {
   const [loginFormActive, setLoginFormActive] = useState(false);
+  const history = useHistory();
+  const token = useSelector((state) => state.auth.token);
+  console.log('token', token);
+  useEffect(() => {
+    if (token) {
+      history.push('/app/home');
+    } else {
+      history.push('/login');
+    }
+  }, [token]);
 
   return (
     <div className={css(styles.container)}>

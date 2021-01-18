@@ -3,6 +3,7 @@ import { css } from 'aphrodite';
 import {
   Formik, Form,
 } from 'formik';
+import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import Button from '../../atoms/button';
 import Input from '../../atoms/input';
@@ -12,6 +13,7 @@ import { logIn } from '../../../redux/actions/auth';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <Formik
@@ -20,7 +22,7 @@ const LoginForm = () => {
         password: '',
       }}
       onSubmit={(values) => {
-        dispatch(logIn(values.email, values.password));
+        dispatch(logIn(values.email, values.password)).then(() => history.push('/app/home'));
       }}
       validationSchema={signupSchema}
     >

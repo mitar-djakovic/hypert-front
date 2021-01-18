@@ -1,9 +1,9 @@
 import axios from 'axios';
-
 import {
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR, SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_ERROR,
 } from '../../constants';
 
+// eslint-disable-next-line consistent-return
 export const logIn = (email, password) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
 
@@ -20,6 +20,8 @@ export const logIn = (email, password) => async (dispatch) => {
         id: response.data.id,
       },
     });
+
+    return response;
   } catch (error) {
     console.log('error', error);
     dispatch({ type: LOGIN_ERROR });
