@@ -15,7 +15,7 @@ const Login = () => {
         onClick={() => setLoginFormActive(!loginFormActive)}
         role="presentation"
       >
-        {loginFormActive ? 'Log In' : 'Sign Up'}
+        {loginFormActive ? 'Sign Up' : 'Log In'}
       </p>
       <div className={css(styles.block, styles.leftBlock)}>
         {loginFormActive ? <LoginFormWrapper /> : <SignupFormWrapper />}
