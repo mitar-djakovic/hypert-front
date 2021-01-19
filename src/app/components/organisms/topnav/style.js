@@ -54,5 +54,18 @@ export const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: '#343C44',
     padding: '20px 16px',
+    ':hover': {
+      backgroundColor: '#FFFFFF',
+      cursor: 'pointer',
+    },
+  },
+  firstMenuItem: {
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
+    borderBottom: '1px solid #D6E4EC',
+  },
+  lastMenuItem: {
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
 });

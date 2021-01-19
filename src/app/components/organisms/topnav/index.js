@@ -25,8 +25,8 @@ const TopNav = () => {
       </div>
       {dropDownOpen && (
         <div className={css(styles.menuContainer)}>
-          <div className={css(styles.menuItem)}>Settings</div>
-          <div className={css(styles.menuItem)}>Logout</div>
+          <div className={css(styles.menuItem, styles.firstMenuItem)}>Settings</div>
+          <div className={css(styles.menuItem, styles.lastMenuItem)}>Logout</div>
         </div>
       )}
     </div>
