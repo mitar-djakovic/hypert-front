@@ -68,4 +68,7 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
   },
+  anchor: {
+    textDecoration: 'none',
+  },
 });

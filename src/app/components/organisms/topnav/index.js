@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { css } from 'aphrodite';
+import { Link } from 'react-router-dom';
 import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
 import { styles } from './style';
 import { avatarImg } from '../../../../assets';
@@ -25,7 +26,7 @@ const TopNav = () => {
       </div>
       {dropDownOpen && (
         <div className={css(styles.menuContainer)}>
-          <div className={css(styles.menuItem, styles.firstMenuItem)}>Settings</div>
+          <Link className={css(styles.anchor)} to="/settings"><div className={css(styles.menuItem, styles.firstMenuItem)}>Settings</div></Link>
           <div className={css(styles.menuItem, styles.lastMenuItem)}>Logout</div>
         </div>
       )}

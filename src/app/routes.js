@@ -7,6 +7,7 @@ import Calendar from './views/calendar';
 import Chat from './views/chat';
 import AppLayout from './layout/appLayout';
 import AuthLayout from './layout/authLayout';
+import SettingsLayout from './layout/settingsLayout';
 import Login from './views/login';
 
 const routesConfig = (token) => {
@@ -64,6 +65,25 @@ const routesConfig = (token) => {
           path: '/app/calendar',
           component: () => <Calendar />,
           key: 9,
+        },
+      ],
+    },
+    {
+      path: '/settings',
+      layout: SettingsLayout,
+      key: 10,
+      routes: [
+        {
+          path: '/settings/',
+          exact: true,
+          component: () => <Redirect to="/settings/profile" />,
+          key: 11,
+        },
+        {
+          path: '/settings/profile',
+          exact: true,
+          component: () => <div>Settings</div>,
+          key: 12,
         },
       ],
     },
