@@ -22,7 +22,9 @@ const AppLayout = ({ children }) => {
       <div style={{ display: 'flex' }}>
         <SideNav />
         <div className={css(styles.view)}>
-          {children}
+          <div className={css(styles.content)}>
+            {children}
+          </div>
         </div>
       </div>
     </div>

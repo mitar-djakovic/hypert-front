@@ -70,5 +70,6 @@ export const styles = StyleSheet.create({
   },
   anchor: {
     textDecoration: 'none',
+    height: '100%',
   },
 });

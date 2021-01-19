@@ -6,7 +6,7 @@ import { styles } from './style';
 import { avatarImg } from '../../../../assets';
 
 const TopNav = () => {
-  const [dropDownOpen, setDropDownOpen] = useState(true);
+  const [dropDownOpen, setDropDownOpen] = useState(false);
 
   return (
     <div className={css(styles.topNav)}>

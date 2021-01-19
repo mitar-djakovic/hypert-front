@@ -16,5 +16,8 @@ export const styles = StyleSheet.create({
   },
   navAnchor: {
     color: '#BFC5D2',
+    ':hover': {
+      color: '#1D37AF',
+    },
   },
 });
