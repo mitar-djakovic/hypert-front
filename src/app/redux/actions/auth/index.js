@@ -17,13 +17,13 @@ export const logIn = (email, password) => async (dispatch) => {
       payload: {
         token: response.data.token,
         message: response.data.message,
-        id: response.data.id,
+        adminId: response.data.accountId,
       },
     });
 
     return response;
   } catch (error) {
-    console.log('error', error);
+    console.log('error', error.response);
     dispatch({ type: LOGIN_ERROR });
   }
 };

@@ -1,21 +1,25 @@
 import React, { useEffect } from 'react';
 import { css } from 'aphrodite';
 import { useHistory } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import SideNav from '../../components/organisms/sidenav';
 import TopNav from '../../components/organisms/topnav';
 import { styles } from './style';
+import { getProjects } from '../../redux/actions/projects';
 
 const AppLayout = ({ children }) => {
+  const dispatch = useDispatch();
   const history = useHistory();
-  const token = useSelector((state) => state.auth.token);
+  const adminId = useSelector((state) => state.auth.adminId);
+
   useEffect(() => {
-    if (token) {
-      history.push('/app/home');
+    if (adminId) {
+      history.push('/app/projects');
+      dispatch(getProjects(adminId));
     } else {
       history.push('/login');
     }
-  }, [token]);
+  }, [adminId]);
   return (
     <div>
       <TopNav />

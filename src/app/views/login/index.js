@@ -15,7 +15,7 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      history.push('/app/home');
+      history.push('/app/projects');
     }
   }, [token]);
 

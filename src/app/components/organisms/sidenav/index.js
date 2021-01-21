@@ -1,34 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { css } from 'aphrodite';
+import { useSelector } from 'react-redux';
 import {
-  AiFillWechat, AiOutlineCalendar, AiOutlineAppstore, AiFillHome,
-} from 'react-icons/ai';
+  RiDashboardFill,
+} from 'react-icons/ri';
 import { styles } from './style';
 
 const iconOptions = {
-  size: 20,
+  size: 26,
 };
 
-const SideNav = () => (
-  <div
-    className={css(styles.sideNav)}
-  >
-    <ul className={css(styles.navigation)}>
-      <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/app/home"><AiFillHome size={iconOptions.size} /></Link>
-      </li>
-      <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/app/projects"><AiOutlineAppstore size={iconOptions.size} /></Link>
-      </li>
-      <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/app/chat"><AiFillWechat size={iconOptions.size} /></Link>
-      </li>
-      <li className={css(styles.navItem)}>
-        <Link className={css(styles.navAnchor)} to="/app/calendar"><AiOutlineCalendar size={iconOptions.size} /></Link>
-      </li>
-    </ul>
-  </div>
-);
+const SideNav = () => {
+  const [dropDownOpen, setDropDownOpen] = useState(false);
+  const projects = useSelector((state) => state.projects.projects);
+  return (
+    <div
+      className={css(styles.sideNav)}
+    >
+      <ul className={css(styles.navigation)}>
+        <li className={css(styles.navItem)}>
+          <Link className={css(styles.navAnchor)} to="/app/projects">
+            <RiDashboardFill
+              size={iconOptions.size}
+              onClick={() => setDropDownOpen(!dropDownOpen)}
+            />
+          </Link>
+          {dropDownOpen && (
+          <ul>
+            {projects.map((project) => (
+              <li>
+                <Link key={project.name} to="/">{project.name}</Link>
+              </li>
+            ))}
+          </ul>
+          )}
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 export default SideNav;

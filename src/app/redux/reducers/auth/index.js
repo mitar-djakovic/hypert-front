@@ -7,7 +7,7 @@ const initialState = {
   error: false,
   message: '',
   token: '',
-  id: '',
+  adminId: '',
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -24,7 +24,7 @@ export default (state = initialState, { type, payload }) => {
         loading: false,
         message: payload.message,
         token: payload.token,
-        id: payload.id,
+        adminId: payload.adminId,
         error: false,
       };
     case LOGIN_ERROR:

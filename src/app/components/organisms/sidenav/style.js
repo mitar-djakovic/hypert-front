@@ -8,6 +8,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRight: '1px solid #F2F2F2',
   },
+  sideNavOpen: {
+    width: 120,
+  },
   navigation: {
     marginTop: 60,
   },
@@ -15,7 +18,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   navAnchor: {
-    color: '#BFC5D2',
+    color: '#343C44',
     ':hover': {
       color: '#1D37AF',
     },

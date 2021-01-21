@@ -39,20 +39,20 @@ const routesConfig = (token) => {
         {
           path: '/app',
           exact: true,
-          component: () => <Redirect to="/app/home" />,
+          component: () => <Redirect to="/app/projects" />,
           key: 5,
-        },
-        {
-          path: '/app/home',
-          exact: true,
-          component: () => <Home />,
-          key: 6,
         },
         {
           exact: true,
           path: '/app/projects',
           component: () => <Projects />,
           key: 7,
+        },
+        {
+          path: '/app/home',
+          exact: true,
+          component: () => <Home />,
+          key: 6,
         },
         {
           exact: true,
