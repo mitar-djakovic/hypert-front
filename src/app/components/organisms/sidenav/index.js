@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { css } from 'aphrodite';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   RiDashboardFill,
 } from 'react-icons/ri';
 import { styles } from './style';
+import { setActiveProject } from '../../../redux/actions/projects';
 
 const SideNav = () => {
+  const dispatch = useDispatch();
   const [menuLinks, setMenuLinks] = useState([
     {
       name: 'Projects',
       to: '/app/projects',
       subMenuOpen: false,
+      onClick: (project) => setActiveProject(project),
     },
     {
       name: 'Chat',
@@ -44,11 +47,12 @@ const SideNav = () => {
       <ul className={css(styles.navigation)}>
         {menuLinks.map((menuLink) => (
           <li
-            role="presentation"
+            key={menuLink.name}
             className={css(styles.navItem)}
-            onClick={() => handleDropDownMenu(menuLink.name)}
           >
             <p
+              role="presentation"
+              onClick={() => handleDropDownMenu(menuLink.name)}
               className={css(styles.navAnchor)}
             >
               <RiDashboardFill
@@ -60,7 +64,12 @@ const SideNav = () => {
             {menuLink.subMenuOpen && (
               <ul className={css(styles.subMenuLinks)}>
                 {(data[menuLink.name.toLowerCase()] || []).map((project) => (
-                  <li className={css(styles.subMenuLink)}>
+                  <li
+                    role="presentation"
+                    className={css(styles.subMenuLink)}
+                    onClick={() => dispatch(menuLink.onClick(project))}
+                    key={project.name}
+                  >
                     <Link key={project.name} to="/app/projects" className={css(styles.subMenuAnchor)}>
                       {project.name}
                     </Link>

@@ -2,11 +2,14 @@ import {
   GET_PROJECTS_REQUEST,
   GET_PROJECTS_SUCCESS,
   GET_PROJECTS_ERROR,
+  SET_ACTIVE_PROJECT,
 } from '../../constants';
 
 const initialState = {
   loading: false,
   error: false,
+  projects: [],
+  activeProject: null,
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -29,6 +32,11 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         error: true,
+      };
+    case SET_ACTIVE_PROJECT:
+      return {
+        ...state,
+        activeProject: payload.activeProject,
       };
     default:
       return state;

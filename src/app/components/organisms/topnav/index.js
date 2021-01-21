@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { css } from 'aphrodite';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
 import { styles } from './style';
@@ -7,12 +8,13 @@ import { avatarImg } from '../../../../assets';
 
 const TopNav = () => {
   const [dropDownOpen, setDropDownOpen] = useState(false);
-
+  const activeProjectName = useSelector((state) => state.projects.activeProject?.name) || '';
+  console.log('activeProjectName', activeProjectName);
   return (
     <div className={css(styles.topNav)}>
       <div className={css(styles.navItemsWrapper)}>
         <div>
-          Project title
+          {activeProjectName}
         </div>
         <div
           role="presentation"

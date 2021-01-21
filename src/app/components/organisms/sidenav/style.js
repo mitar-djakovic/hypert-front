@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
   },
   navItem: {
     marginBottom: 20,
+    zIndex: 1,
   },
   navAnchor: {
     display: 'flex',
@@ -37,6 +38,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     boxSizing: 'border-box',
     paddingLeft: 20,
+    zIndex: 2,
   },
   subMenuLink: {
     margin: '5px 0px',
