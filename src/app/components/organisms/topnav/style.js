@@ -2,7 +2,7 @@ import { StyleSheet } from 'aphrodite';
 
 export const styles = StyleSheet.create({
   topNav: {
-    width: 'calc(100% - 48px)',
+    width: 'calc(100% - 172px)',
     height: 50,
     position: 'absolute',
     right: 0,
@@ -69,7 +69,6 @@ export const styles = StyleSheet.create({
     borderBottomRightRadius: 8,
   },
   anchor: {
-    textDecoration: 'none',
     height: '100%',
   },
 });
