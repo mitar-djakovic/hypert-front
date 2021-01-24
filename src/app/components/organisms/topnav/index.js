@@ -8,13 +8,12 @@ import { avatarImg } from '../../../../assets';
 
 const TopNav = () => {
   const [dropDownOpen, setDropDownOpen] = useState(false);
-  const activeProjectName = useSelector((state) => state.projects.activeProject?.name) || '';
-  console.log('activeProjectName', activeProjectName);
+  const lastActiveProject = useSelector((state) => state.auth.lastActiveProject);
   return (
     <div className={css(styles.topNav)}>
       <div className={css(styles.navItemsWrapper)}>
         <div>
-          {activeProjectName}
+          {lastActiveProject?.name ? lastActiveProject.name : ''}
         </div>
         <div
           role="presentation"

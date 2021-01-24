@@ -2,11 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Projects = () => {
-  const activeProjectName = useSelector((state) => state.projects.activeProject?.name) || '';
+  const lastActiveProject = useSelector((state) => state.auth.lastActiveProject);
 
   return (
     <div>
-      {activeProjectName}
+      {lastActiveProject?.name ? lastActiveProject.name : null}
     </div>
   );
 };

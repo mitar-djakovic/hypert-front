@@ -8,7 +8,7 @@ import LoginFormWrapper from '../../components/templates/loginFormWrapper';
 import { loginImg } from '../../../assets';
 
 const Login = () => {
-  const [loginFormActive, setLoginFormActive] = useState(false);
+  const [loginFormActive, setLoginFormActive] = useState(true);
   const history = useHistory();
   const token = useSelector((state) => state.auth.token);
   const loading = useSelector((state) => state.auth.loading);

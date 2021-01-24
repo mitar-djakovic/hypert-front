@@ -15,7 +15,7 @@ const SideNav = () => {
       name: 'Projects',
       to: '/app/projects',
       subMenuOpen: false,
-      onClick: (project) => setActiveProject(project),
+      onClick: (project, adminId) => setActiveProject(project, adminId),
     },
     {
       name: 'Chat',
@@ -26,6 +26,7 @@ const SideNav = () => {
   const data = {
     projects: useSelector((state) => state.projects.projects) || [],
   };
+  const adminId = useSelector((state) => state.auth.adminId);
 
   const handleDropDownMenu = (name) => {
     const newMenuLinks = menuLinks.map((menuLink) => {
@@ -67,7 +68,7 @@ const SideNav = () => {
                   <li
                     role="presentation"
                     className={css(styles.subMenuLink)}
-                    onClick={() => dispatch(menuLink.onClick(project))}
+                    onClick={() => dispatch(menuLink.onClick(project, adminId))}
                     key={project.name}
                   >
                     <Link key={project.name} to="/app/projects" className={css(styles.subMenuAnchor)}>

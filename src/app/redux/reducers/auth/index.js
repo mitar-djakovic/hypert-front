@@ -1,5 +1,11 @@
 import {
-  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR, SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_ERROR,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  SIGNUP_ERROR,
+  SET_ACTIVE_PROJECT,
 } from '../../constants';
 
 const initialState = {
@@ -8,6 +14,7 @@ const initialState = {
   message: '',
   token: '',
   adminId: '',
+  lastActiveProject: null,
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -25,6 +32,7 @@ export default (state = initialState, { type, payload }) => {
         message: payload.message,
         token: payload.token,
         adminId: payload.adminId,
+        lastActiveProject: payload.lastActiveProject,
         error: false,
       };
     case LOGIN_ERROR:
@@ -50,6 +58,11 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         error: true,
+      };
+    case SET_ACTIVE_PROJECT:
+      return {
+        ...state,
+        lastActiveProject: payload.lastActiveProject,
       };
     default:
       return state;

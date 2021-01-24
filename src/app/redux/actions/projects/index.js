@@ -11,7 +11,7 @@ export const getProjects = (adminId) => async (dispatch) => {
 
   try {
     const response = await axios.post('http://localhost:8000/api/projects/projects', {
-      adminId,
+      accountId: adminId,
     });
 
     dispatch({
@@ -26,6 +26,18 @@ export const getProjects = (adminId) => async (dispatch) => {
   }
 };
 
-export const setActiveProject = (activeProject) => (dispatch) => {
-  dispatch({ type: SET_ACTIVE_PROJECT, payload: { activeProject } });
+export const setActiveProject = (activeProject, adminId) => async (dispatch) => {
+  try {
+    const response = await axios.patch('http://localhost:8000/api/projects/set-last-project', {
+      accountId: adminId,
+      projectId: activeProject.projectId,
+    });
+
+    dispatch({
+      type: SET_ACTIVE_PROJECT,
+      payload: { lastActiveProject: response.data.lastActiveProject },
+    });
+  } catch (error) {
+    console.log('error', error.response);
+  }
 };

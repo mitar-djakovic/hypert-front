@@ -18,6 +18,7 @@ export const logIn = (email, password) => async (dispatch) => {
         token: response.data.token,
         message: response.data.message,
         adminId: response.data.accountId,
+        lastActiveProject: response.data.lastActiveProject ? response.data.lastActiveProject : null,
       },
     });
 

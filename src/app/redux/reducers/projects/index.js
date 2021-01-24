@@ -9,7 +9,6 @@ const initialState = {
   loading: false,
   error: false,
   projects: [],
-  activeProject: null,
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -32,11 +31,6 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         error: true,
-      };
-    case SET_ACTIVE_PROJECT:
-      return {
-        ...state,
-        activeProject: payload.activeProject,
       };
     default:
       return state;
