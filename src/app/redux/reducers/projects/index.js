@@ -2,7 +2,9 @@ import {
   GET_PROJECTS_REQUEST,
   GET_PROJECTS_SUCCESS,
   GET_PROJECTS_ERROR,
-  SET_ACTIVE_PROJECT,
+  CREATE_PROJECT_REQUEST,
+  CREATE_PROJECT_SUCCESS,
+  CREATE_PROJECT_ERROR,
 } from '../../constants';
 
 const initialState = {
@@ -31,6 +33,19 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         loading: false,
         error: true,
+      };
+    case CREATE_PROJECT_REQUEST:
+      return {
+        ...state,
+      };
+    case CREATE_PROJECT_SUCCESS:
+      return {
+        ...state,
+        projects: payload.updatedProjects,
+      };
+    case CREATE_PROJECT_ERROR:
+      return {
+        ...state,
       };
     default:
       return state;

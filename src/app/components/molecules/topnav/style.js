@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     boxSizing: 'border-box',
     cursor: 'pointer',
+    marginLeft: 10,
   },
   avatar: {
     height: '100%',
@@ -70,5 +71,8 @@ export const styles = StyleSheet.create({
   },
   anchor: {
     height: '100%',
+  },
+  rightBlockContainer: {
+    display: 'flex',
   },
 });
