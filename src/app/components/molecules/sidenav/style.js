@@ -19,6 +19,11 @@ export const styles = StyleSheet.create({
     boxSizing: 'border-box',
     paddingTop: 10,
   },
+  activeRoute: {
+    backgroundColor: '#DEE4FF',
+    width: '100%',
+    height: 40,
+  },
   navItem: {
     zIndex: 1,
     fontSize: 16,
@@ -27,10 +32,8 @@ export const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     cursor: 'pointer',
-    backgroundColor: '#DEE4FF',
   },
   navAnchor: {
-    marginLeft: 10,
     color: '#1D37AF',
     display: 'flex',
     alignItems: 'center',
@@ -43,8 +46,15 @@ export const styles = StyleSheet.create({
     cursor: 'pointer',
     margin: 10,
     marginTop: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   icon: {
     marginRight: 4,
+    marginLeft: 8,
+  },
+  projectIcon: {
+    color: '#FFFFFF',
   },
 });
