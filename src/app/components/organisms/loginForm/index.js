@@ -22,7 +22,7 @@ const LoginForm = () => {
         password: '',
       }}
       onSubmit={(values) => {
-        dispatch(logIn(values.email, values.password)).then(() => history.push('/app/projects'));
+        dispatch(logIn(values.email, values.password)).then(() => history.push('/app/dashboard'));
       }}
       validationSchema={signupSchema}
     >

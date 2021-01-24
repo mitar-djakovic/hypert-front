@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Projects from './views/projects';
+import Dashboard from './views/dashboard';
 import Home from './views/home';
 import Calendar from './views/calendar';
 import Chat from './views/chat';
@@ -39,13 +39,13 @@ const routesConfig = (token) => {
         {
           path: '/app',
           exact: true,
-          component: () => <Redirect to="/app/projects" />,
+          component: () => <Redirect to="/app/dashboard" />,
           key: 5,
         },
         {
           exact: true,
-          path: '/app/projects',
-          component: () => <Projects />,
+          path: '/app/dashboard',
+          component: () => <Dashboard />,
           key: 7,
         },
         {

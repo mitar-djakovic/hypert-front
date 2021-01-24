@@ -2,51 +2,49 @@ import { StyleSheet } from 'aphrodite';
 
 export const styles = StyleSheet.create({
   sideNav: {
-    width: 200,
+    width: 240,
     height: '100vh',
     display: 'flex',
-    justifyContent: 'center',
     borderRight: '1px solid #F2F2F2',
+    boxSizing: 'border-box',
   },
-  sideNavOpen: {
-    width: 120,
+  projectList: {
+    width: 60,
+    boxSizing: 'border-box',
+    paddingTop: 10,
+    borderRight: '1px solid #F2F2F2',
   },
   navigation: {
     width: '100%',
     boxSizing: 'border-box',
-    paddingLeft: 20,
-    paddingTop: 60,
+    paddingTop: 10,
   },
   navItem: {
-    marginBottom: 20,
     zIndex: 1,
-  },
-  navAnchor: {
+    fontSize: 16,
+    height: 40,
+    marginBottom: 10,
     display: 'flex',
     alignItems: 'center',
-    borderTopLeftRadius: 20,
-    borderBottomLeftRadius: 20,
-    height: 40,
-    boxSizing: 'border-box',
-    paddingLeft: 20,
     cursor: 'pointer',
-    filter: 'drop-shadow(0px 4px 4px rgba(52, 60, 68, 0.4))',
-    backgroundColor: '#1D37AF',
-    color: '#FFFFFF',
+    backgroundColor: '#DEE4FF',
   },
-  subMenuLinks: {
-    marginTop: 20,
-    boxSizing: 'border-box',
-    paddingLeft: 20,
-    zIndex: 2,
-  },
-  subMenuLink: {
-    margin: '5px 0px',
-  },
-  subMenuAnchor: {
+  navAnchor: {
+    marginLeft: 10,
     color: '#1D37AF',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#1D37AF',
+    borderRadius: 6,
+    cursor: 'pointer',
+    margin: 10,
+    marginTop: 0,
   },
   icon: {
-    marginRight: 10,
+    marginRight: 4,
   },
 });
