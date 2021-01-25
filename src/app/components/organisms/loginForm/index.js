@@ -61,7 +61,7 @@ const LoginForm = () => {
             )}
           </div>
           <div className={css(styles.buttonContainer)}>
-            <Button title="Log in" type="submit" loading={loading} />
+            <Button title="Log in" type="submit" loading={loading} size="big" />
           </div>
         </Form>
       )}

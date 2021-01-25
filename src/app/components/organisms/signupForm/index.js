@@ -113,7 +113,7 @@ const SignupForm = () => {
             )}
           </div>
           <div className={css(styles.buttonContainer)}>
-            <Button title="Sign up" type="submit" loading={loading} />
+            <Button title="Sign up" type="submit" loading={loading} size="big" />
           </div>
         </Form>
       )}
