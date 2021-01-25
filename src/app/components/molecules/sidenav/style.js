@@ -50,6 +50,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  activeLogo: {
+    backgroundColor: '#FF426F',
+  },
   icon: {
     marginRight: 4,
     marginLeft: 8,

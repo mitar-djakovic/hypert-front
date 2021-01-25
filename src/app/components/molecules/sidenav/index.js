@@ -14,9 +14,8 @@ const SideNav = () => {
   const location = useLocation();
   const projects = useSelector((state) => state.projects.projects);
   const adminId = useSelector((state) => state.auth.adminId);
+  const lastActiveProject = useSelector((state) => state.auth.lastActiveProject);
   const activeRoute = location.pathname.slice(5);
-
-  console.log('activeRoute', activeRoute);
   const navigations = [
     {
       name: 'Dashboard',
@@ -37,7 +36,12 @@ const SideNav = () => {
             key={project.name}
             role="presentation"
           >
-            <div className={css(styles.logo)}>
+            <div
+              className={css(
+                styles.logo,
+                project.name === lastActiveProject.name && styles.activeLogo,
+              )}
+            >
               <DiJsBadge
                 size={22}
                 className={css(styles.projectIcon)}
