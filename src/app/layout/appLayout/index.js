@@ -7,6 +7,7 @@ import TopNav from '../../components/molecules/topnav';
 import { styles } from './style';
 import { getProjects } from '../../redux/actions/projects';
 import ProjectForm from '../../components/organisms/projectForm';
+import Modal from '../../components/atoms/modal';
 
 const AppLayout = ({ children }) => {
   const dispatch = useDispatch();
@@ -22,11 +23,12 @@ const AppLayout = ({ children }) => {
       history.push('/login');
     }
   }, [adminId]);
+
   return (
     <div style={{ position: 'relative' }}>
       <TopNav setAddModalOpen={() => setAddModalOpen(!addModalOpen)} />
       <div style={{ display: 'flex' }}>
-        <SideNav />
+        <SideNav setAddModalOpen={setAddModalOpen} />
         <div className={css(styles.view)}>
           <div className={css(styles.content)}>
             {children}
@@ -34,12 +36,9 @@ const AppLayout = ({ children }) => {
         </div>
       </div>
       {addModalOpen && (
-        <div
-          role="presentation"
-          className={css(styles.addModal)}
-        >
+        <Modal closeOnClickAway={setAddModalOpen}>
           <ProjectForm setAddModalOpen={() => setAddModalOpen(false)} />
-        </div>
+        </Modal>
       )}
     </div>
   );

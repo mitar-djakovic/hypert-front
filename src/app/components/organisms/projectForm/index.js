@@ -38,9 +38,9 @@ const ProjectForm = ({ setAddModalOpen }) => {
               errorStatus={errors.name ? true : null}
             />
             {errors.name && (
-            <p className={css(styles.errorMessage)}>
-              {errors.name}
-            </p>
+              <p className={css(styles.errorMessage)}>
+                {errors.name}
+              </p>
             )}
           </div>
           <div className={css(styles.buttonContainer)}>

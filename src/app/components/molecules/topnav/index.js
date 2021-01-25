@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom';
 import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
 import { styles } from './style';
 import { avatarImg } from '../../../../assets';
-import Button from '../../atoms/button';
 
-const TopNav = ({ setAddModalOpen }) => {
+const TopNav = () => {
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const lastActiveProject = useSelector((state) => state.auth.lastActiveProject);
 
@@ -18,11 +17,6 @@ const TopNav = ({ setAddModalOpen }) => {
           {lastActiveProject?.name ? lastActiveProject.name : ''}
         </div>
         <div className={css(styles.rightBlockContainer)}>
-          <Button
-            title="Add Project"
-            onClick={setAddModalOpen}
-            type="Submit"
-          />
           <div
             role="presentation"
             onClick={() => setDropDownOpen(!dropDownOpen)}

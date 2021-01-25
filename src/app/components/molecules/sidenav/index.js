@@ -6,10 +6,11 @@ import {
   RiDashboardFill,
 } from 'react-icons/ri';
 import { DiJsBadge } from 'react-icons/di';
+import { AiFillFolderAdd } from 'react-icons/ai';
 import { styles } from './style';
 import { setActiveProject } from '../../../redux/actions/projects';
 
-const SideNav = () => {
+const SideNav = ({ setAddModalOpen }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const projects = useSelector((state) => state.projects.projects);
@@ -49,6 +50,14 @@ const SideNav = () => {
             </div>
           </li>
         ))}
+        <li
+          onClick={() => setAddModalOpen(true)}
+          role="presentation"
+        >
+          <div className={css(styles.logo)}>
+            <AiFillFolderAdd size={22} className={css(styles.projectIcon)} />
+          </div>
+        </li>
       </ul>
       <ul className={css(styles.navigation)}>
         {navigations.map((nav) => (
