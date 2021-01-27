@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import SideNav from '../../components/molecules/sidenav';
 import TopNav from '../../components/molecules/topnav';
 import { styles } from './style';
-import { getProjects } from '../../redux/actions/projects';
+import { getProjects, getProjectLists } from '../../redux/actions/projects';
 import ProjectForm from '../../components/organisms/projectForm';
 import Modal from '../../components/atoms/modal';
 
@@ -14,11 +14,13 @@ const AppLayout = ({ children }) => {
   const history = useHistory();
   const adminId = useSelector((state) => state.auth.adminId);
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const projectLists = useSelector((state) => state.projects.projectLists);
 
   useEffect(() => {
     if (adminId) {
       history.push('/app/dashboard');
       dispatch(getProjects(adminId));
+      dispatch(getProjectLists(adminId, projectLists));
     } else {
       history.push('/login');
     }

@@ -5,12 +5,19 @@ import {
   CREATE_PROJECT_REQUEST,
   CREATE_PROJECT_SUCCESS,
   CREATE_PROJECT_ERROR,
+  CREATE_PROJECT_LIST_REQUEST,
+  CREATE_PROJECT_LIST_SUCCESS,
+  CREATE_PROJECT_LIST_ERROR,
+  GET_PROJECT_LISTS_REQUEST,
+  GET_PROJECT_LISTS_SUCCESS,
+  GET_PROJECT_LISTS_ERROR,
 } from '../../constants';
 
 const initialState = {
   loading: false,
   error: false,
   projects: [],
+  projectLists: [],
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -44,6 +51,32 @@ export default (state = initialState, { type, payload }) => {
         projects: payload.updatedProjects,
       };
     case CREATE_PROJECT_ERROR:
+      return {
+        ...state,
+      };
+    case CREATE_PROJECT_LIST_REQUEST:
+      return {
+        ...state,
+      };
+    case CREATE_PROJECT_LIST_SUCCESS:
+      return {
+        ...state,
+        projectLists: payload.updatedProjectList,
+      };
+    case CREATE_PROJECT_LIST_ERROR:
+      return {
+        ...state,
+      };
+    case GET_PROJECT_LISTS_REQUEST:
+      return {
+        ...state,
+      };
+    case GET_PROJECT_LISTS_SUCCESS:
+      return {
+        ...state,
+        projectLists: payload.projectLists,
+      };
+    case GET_PROJECT_LISTS_ERROR:
       return {
         ...state,
       };

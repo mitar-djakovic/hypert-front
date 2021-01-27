@@ -7,6 +7,12 @@ import {
   CREATE_PROJECT_REQUEST,
   CREATE_PROJECT_SUCCESS,
   CREATE_PROJECT_ERROR,
+  CREATE_PROJECT_LIST_REQUEST,
+  CREATE_PROJECT_LIST_SUCCESS,
+  CREATE_PROJECT_LIST_ERROR,
+  GET_PROJECT_LISTS_REQUEST,
+  GET_PROJECT_LISTS_SUCCESS,
+  GET_PROJECT_LISTS_ERROR,
 } from '../../constants';
 
 export const getProjects = (adminId) => async (dispatch) => {
@@ -66,5 +72,45 @@ export const createProject = (name, accountId, projects) => async (dispatch) => 
   } catch (error) {
     console.log('error', error.response);
     dispatch({ type: CREATE_PROJECT_ERROR });
+  }
+};
+
+export const createProjectList = (name, accountId, projectLists) => async (dispatch) => {
+  dispatch({ type: CREATE_PROJECT_LIST_REQUEST });
+
+  try {
+    const response = await axios.post('http://localhost:8000/api/project-lists/project-list', {
+      name,
+      accountId,
+    });
+
+    dispatch({
+      type: CREATE_PROJECT_LIST_SUCCESS,
+      payload: {
+        updatedProjectList: [...projectLists, response.data.projectList],
+      },
+    });
+  } catch (error) {
+    console.log('error', error.response);
+    dispatch({ type: CREATE_PROJECT_LIST_ERROR });
+  }
+};
+
+export const getProjectLists = (accountId, projectLists) => async (dispatch) => {
+  dispatch({ type: GET_PROJECT_LISTS_REQUEST });
+
+  try {
+    const response = await axios.post('http://localhost:8000/api/project-lists/project-lists', {
+      accountId,
+    });
+
+    dispatch({
+      type: GET_PROJECT_LISTS_SUCCESS,
+      payload: {
+        projectLists: [...projectLists, ...response.data.projectLists],
+      },
+    });
+  } catch (error) {
+    dispatch({ type: GET_PROJECT_LISTS_ERROR });
   }
 };
