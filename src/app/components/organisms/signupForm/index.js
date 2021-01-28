@@ -8,11 +8,12 @@ import Button from '../../atoms/button';
 import Input from '../../atoms/input';
 import { signupSchema } from './validationSchema';
 import { styles } from './style';
-import { signUp } from '../../../redux/actions/auth';
+import { signup } from '../../../redux/actions/auth';
 
 const SignupForm = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.auth.loading);
+
   return (
     <Formik
       initialValues={{
@@ -23,7 +24,7 @@ const SignupForm = () => {
         repeatPassword: '',
       }}
       onSubmit={(values) => {
-        dispatch(signUp(
+        dispatch(signup(
           values.firstName,
           values.lastName,
           values.email,

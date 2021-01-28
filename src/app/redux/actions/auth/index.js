@@ -4,11 +4,11 @@ import {
 } from '../../constants';
 
 // eslint-disable-next-line consistent-return
-export const logIn = (email, password) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
 
   try {
-    const response = await axios.post('http://localhost:8000/api/accounts/login', {
+    const response = await axios.post('http://localhost:8000/api/auth/login', {
       email, password,
     });
 
@@ -18,23 +18,23 @@ export const logIn = (email, password) => async (dispatch) => {
         token: response.data.token,
         message: response.data.message,
         adminId: response.data.accountId,
-        lastActiveProject: response.data.lastActiveProject ? response.data.lastActiveProject : null,
+        lastActiveProject: response.data.lastActiveProject?.name
+          ? response.data.lastActiveProject : null,
       },
     });
 
-    return response;
+    return response.data;
   } catch (error) {
-    console.log('error', error.response);
     dispatch({ type: LOGIN_ERROR });
   }
 };
 
-export const signUp = (
+export const signup = (
   firstName, lastName, email, password, repeatPassword,
 ) => async (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   try {
-    const response = await axios.post('http://localhost:8000/api/accounts/signup', {
+    const response = await axios.post('http://localhost:8000/api/auth/signup', {
       firstName,
       lastName,
       email,
@@ -49,7 +49,6 @@ export const signUp = (
       },
     });
   } catch (error) {
-    console.log('error', error.response);
     dispatch({ type: SIGNUP_ERROR });
   }
 };

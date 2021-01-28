@@ -11,13 +11,14 @@ import {
   GET_PROJECT_LISTS_REQUEST,
   GET_PROJECT_LISTS_SUCCESS,
   GET_PROJECT_LISTS_ERROR,
+  SET_ACTIVE_PROJECT,
 } from '../../constants';
 
 const initialState = {
   loading: false,
   error: false,
   projects: [],
-  projectLists: [],
+  lists: [],
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -51,32 +52,6 @@ export default (state = initialState, { type, payload }) => {
         projects: payload.updatedProjects,
       };
     case CREATE_PROJECT_ERROR:
-      return {
-        ...state,
-      };
-    case CREATE_PROJECT_LIST_REQUEST:
-      return {
-        ...state,
-      };
-    case CREATE_PROJECT_LIST_SUCCESS:
-      return {
-        ...state,
-        projectLists: payload.updatedProjectList,
-      };
-    case CREATE_PROJECT_LIST_ERROR:
-      return {
-        ...state,
-      };
-    case GET_PROJECT_LISTS_REQUEST:
-      return {
-        ...state,
-      };
-    case GET_PROJECT_LISTS_SUCCESS:
-      return {
-        ...state,
-        projectLists: payload.projectLists,
-      };
-    case GET_PROJECT_LISTS_ERROR:
       return {
         ...state,
       };

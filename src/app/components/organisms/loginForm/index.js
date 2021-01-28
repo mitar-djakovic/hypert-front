@@ -9,7 +9,7 @@ import Button from '../../atoms/button';
 import Input from '../../atoms/input';
 import { signupSchema } from './validationSchema';
 import { styles } from './style';
-import { logIn } from '../../../redux/actions/auth';
+import { login } from '../../../redux/actions/auth';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,8 @@ const LoginForm = () => {
         password: '',
       }}
       onSubmit={(values) => {
-        dispatch(logIn(values.email, values.password)).then(() => history.push('/app/dashboard'));
+        dispatch(login(values.email, values.password))
+          .then(() => history.push('/app/dashboard'));
       }}
       validationSchema={signupSchema}
     >

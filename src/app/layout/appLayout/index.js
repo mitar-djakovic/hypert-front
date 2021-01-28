@@ -18,9 +18,7 @@ const AppLayout = ({ children }) => {
 
   useEffect(() => {
     if (adminId) {
-      history.push('/app/dashboard');
       dispatch(getProjects(adminId));
-      dispatch(getProjectLists(adminId, projectLists));
     } else {
       history.push('/login');
     }
