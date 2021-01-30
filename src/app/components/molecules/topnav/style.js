@@ -2,7 +2,7 @@ import { StyleSheet } from 'aphrodite';
 
 export const styles = StyleSheet.create({
   topNav: {
-    width: 'calc(100% - 199px)',
+    width: 'calc(100% - 210px)',
     height: 50,
     position: 'absolute',
     right: 0,

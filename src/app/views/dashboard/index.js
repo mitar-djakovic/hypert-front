@@ -5,14 +5,18 @@ import { styles } from './style';
 import Modal from '../../components/atoms/modal';
 import ListForm from '../../components/organisms/listForm';
 import { getLists } from '../../redux/actions/projects';
+import './style.css';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const [addListOpen, setAddListOpen] = useState(false);
   const lists = useSelector((state) => state.projects.lists);
   const adminId = useSelector((state) => state.auth.adminId);
-  console.log('adminId', adminId);
+  const projectId = useSelector((state) => state.auth.lastActiveProject.projectId);
 
+  useEffect(() => {
+    dispatch(getLists(adminId, projectId));
+  }, [adminId]);
   return (
     <div className={css(styles.view)}>
       {addListOpen && (
@@ -20,24 +24,13 @@ const Dashboard = () => {
           <ListForm closeOnClickAway={setAddListOpen} />
         </Modal>
       )}
-      <div className={css(styles.content)}>
-        <div className={css(styles.listContainer)}>
-          {lists.map((list) => (
-            <div
-              className={css(styles.addList)}
-            >
-              {list.name}
-            </div>
-
-          ))}
-          <div
-            role="presentation"
-            onClick={() => setAddListOpen(!addListOpen)}
-            className={css(styles.addList)}
-          >
-            Add list
+      <div className={css(styles.lists)}>
+        {lists.map((list) => (
+          <div className={css(styles.list)}>
+            <h3 className="list-title">{list.name}</h3>
           </div>
-        </div>
+        ))}
+        <button className="add-list-btn btn">Add a list</button>
       </div>
     </div>
   );

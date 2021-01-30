@@ -55,6 +55,15 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
       };
+    case GET_PROJECT_LISTS_REQUEST:
+      return {
+        ...state,
+      };
+    case GET_PROJECT_LISTS_SUCCESS:
+      return {
+        ...state,
+        lists: payload.lists,
+      };
     default:
       return state;
   }

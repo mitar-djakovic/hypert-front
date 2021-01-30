@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import SideNav from '../../components/molecules/sidenav';
 import TopNav from '../../components/molecules/topnav';
 import { styles } from './style';
-import { getProjects, getProjectLists } from '../../redux/actions/projects';
+import { getProjects } from '../../redux/actions/projects';
 import ProjectForm from '../../components/organisms/projectForm';
 import Modal from '../../components/atoms/modal';
 
@@ -27,7 +27,7 @@ const AppLayout = ({ children }) => {
   return (
     <div style={{ position: 'relative' }}>
       <TopNav setAddModalOpen={() => setAddModalOpen(!addModalOpen)} />
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', overflow: 'hidden' }}>
         <SideNav setAddModalOpen={setAddModalOpen} />
         <div className={css(styles.view)}>
           <div className={css(styles.content)}>

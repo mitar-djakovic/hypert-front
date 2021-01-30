@@ -87,7 +87,6 @@ export const createProjectList = (name, accountId, projectLists) => async (dispa
       },
     });
   } catch (error) {
-    console.log('error', error.response);
     dispatch({ type: CREATE_PROJECT_LIST_ERROR });
   }
 };
@@ -101,13 +100,12 @@ export const getLists = (accountId, projectId) => async (dispatch) => {
       projectId,
     });
 
-    console.log('data', data);
-    // dispatch({
-    //   type: GET_PROJECT_LISTS_SUCCESS,
-    //   payload: {
-    //     projectLists: [...projectLists, ...data.projectLists],
-    //   },
-    // });
+    dispatch({
+      type: GET_PROJECT_LISTS_SUCCESS,
+      payload: {
+        lists: data.lists,
+      },
+    });
   } catch (error) {
     dispatch({ type: GET_PROJECT_LISTS_ERROR });
   }

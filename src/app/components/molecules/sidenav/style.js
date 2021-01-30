@@ -2,7 +2,6 @@ import { StyleSheet } from 'aphrodite';
 
 export const styles = StyleSheet.create({
   sideNav: {
-    width: 240,
     height: '100vh',
     display: 'flex',
     borderRight: '1px solid #F2F2F2',
@@ -15,7 +14,7 @@ export const styles = StyleSheet.create({
     borderRight: '1px solid #F2F2F2',
   },
   navigation: {
-    width: '100%',
+    width: '150px',
     boxSizing: 'border-box',
     paddingTop: 10,
   },
