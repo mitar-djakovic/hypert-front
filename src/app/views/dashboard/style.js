@@ -5,8 +5,9 @@ export const styles = StyleSheet.create({
     // width: '100%',
     height: 'calc(100vh - 50px)',
     boxSizing: 'border-box',
-    padding: 10,
+    padding: 30,
     display: 'grid',
+    backgroundColor: '#f6f7fb',
   },
   lists: {
     display: 'flex',

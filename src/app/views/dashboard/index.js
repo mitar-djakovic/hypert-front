@@ -5,7 +5,7 @@ import { styles } from './style';
 import Modal from '../../components/atoms/modal';
 import ListForm from '../../components/organisms/listForm';
 import { getLists } from '../../redux/actions/projects';
-import './style.css';
+import List from '../../components/molecules/list';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -26,9 +26,7 @@ const Dashboard = () => {
       )}
       <div className={css(styles.lists)}>
         {lists.map((list) => (
-          <div className={css(styles.list)}>
-            <h3 className="list-title">{list.name}</h3>
-          </div>
+          <List key={list.name} name={list.name} />
         ))}
         <button className="add-list-btn btn">Add a list</button>
       </div>
