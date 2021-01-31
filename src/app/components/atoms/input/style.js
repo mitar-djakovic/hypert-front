@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
   statusBar: {
     boxSizing: 'border-box',
-    width: 416,
+    width: 'calc(100% - 4px)',
     marginLeft: 2,
     height: 3,
     position: 'absolute',
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
 });
 
 export const Input = styled.input`
-  width: 420px;
+  width: 100%;
   heigh: 40px;
   border: none;
   background: #FBFBFB;

@@ -3,6 +3,7 @@ import { StyleSheet } from 'aphrodite';
 export const styles = StyleSheet.create({
   inputContainer: {
     position: 'relative',
+    width: 420,
   },
   errorMessage: {
     color: '#E2164B',
