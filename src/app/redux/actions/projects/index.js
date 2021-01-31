@@ -110,3 +110,14 @@ export const getLists = (accountId, projectId) => async (dispatch) => {
     dispatch({ type: GET_PROJECT_LISTS_ERROR });
   }
 };
+
+export const getTasks = (listId) => async (dispatch) => {
+  try {
+    const { data } = await axios.post('http://localhost:8000/api/dashboard/tasks', { listId });
+    console.log('data', data);
+
+    return data;
+  } catch (error) {
+    console.log('error', error);
+  }
+};

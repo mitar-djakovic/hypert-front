@@ -26,7 +26,7 @@ const Dashboard = () => {
       )}
       <div className={css(styles.lists)}>
         {lists.map((list) => (
-          <List key={list.name} name={list.name} />
+          <List key={list.name} name={list.name} listId={list.listId} />
         ))}
         <button className="add-list-btn btn">Add a list</button>
       </div>
