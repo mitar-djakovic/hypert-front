@@ -11,6 +11,7 @@ module.exports = merge(commonConfig, {
     clientLogLevel: 'silent',
     hot: true,
     historyApiFallback: true,
+    contentBasePublicPath: '/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

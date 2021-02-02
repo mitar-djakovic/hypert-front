@@ -8,7 +8,7 @@ import {
 import { DiJsBadge } from 'react-icons/di';
 import { AiFillFolderAdd } from 'react-icons/ai';
 import { styles } from './style';
-import { setActiveProject, getLists } from '../../../redux/actions/projects';
+import { setActiveProject, getSingleProject } from '../../../redux/actions/projects';
 
 const SideNav = ({ setAddModalOpen }) => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const SideNav = ({ setAddModalOpen }) => {
 
   const handleProjectSelect = (project, accountId) => {
     dispatch(setActiveProject(project, accountId));
-    dispatch(getLists(accountId, project.projectId));
+    dispatch(getSingleProject(project.projectId));
   };
 
   return (
@@ -39,13 +39,13 @@ const SideNav = ({ setAddModalOpen }) => {
         {projects.map((project) => (
           <li
             onClick={() => handleProjectSelect(project, adminId)}
-            key={project.name}
+            key={project.projectId}
             role="presentation"
           >
             <div
               className={css(
                 styles.logo,
-                project.name === lastActiveProject.name && styles.activeLogo,
+                project.name === lastActiveProject?.name ? styles.activeLogo : null,
               )}
             >
               <DiJsBadge

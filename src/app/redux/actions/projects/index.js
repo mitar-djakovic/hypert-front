@@ -7,12 +7,9 @@ import {
   CREATE_PROJECT_REQUEST,
   CREATE_PROJECT_SUCCESS,
   CREATE_PROJECT_ERROR,
-  CREATE_PROJECT_LIST_REQUEST,
-  CREATE_PROJECT_LIST_SUCCESS,
-  CREATE_PROJECT_LIST_ERROR,
-  GET_PROJECT_LISTS_REQUEST,
-  GET_PROJECT_LISTS_SUCCESS,
-  GET_PROJECT_LISTS_ERROR,
+  GET_SINGLE_PROJECT_REQUEST,
+  GET_SINGLE_PROJECT_SUCCESS,
+  GET_SINGLE_PROJECT_ERROR,
 } from '../../constants';
 
 export const getProjects = (adminId) => async (dispatch) => {
@@ -50,6 +47,24 @@ export const setActiveProject = (activeProject, accountId) => async (dispatch) =
   }
 };
 
+export const getSingleProject = (projectId) => async (dispatch) => {
+  dispatch({ type: GET_SINGLE_PROJECT_REQUEST });
+  try {
+    const { data } = await axios.post('http://localhost:8000/api/dashboard/single-project', {
+      projectId,
+    });
+
+    dispatch({
+      type: GET_SINGLE_PROJECT_SUCCESS,
+      payload: {
+        project: data.project,
+      },
+    });
+  } catch (error) {
+    dispatch({ type: GET_SINGLE_PROJECT_ERROR });
+  }
+};
+
 // eslint-disable-next-line consistent-return
 export const createProject = (name, accountId, projects) => async (dispatch) => {
   dispatch({ type: CREATE_PROJECT_REQUEST });
@@ -68,56 +83,5 @@ export const createProject = (name, accountId, projects) => async (dispatch) => 
     });
   } catch (error) {
     dispatch({ type: CREATE_PROJECT_ERROR });
-  }
-};
-
-export const createProjectList = (name, accountId, projectLists) => async (dispatch) => {
-  dispatch({ type: CREATE_PROJECT_LIST_REQUEST });
-
-  try {
-    const response = await axios.post('http://localhost:8000/api/project-lists/project-list', {
-      name,
-      accountId,
-    });
-
-    dispatch({
-      type: CREATE_PROJECT_LIST_SUCCESS,
-      payload: {
-        updatedProjectList: [...projectLists, response.data.projectList],
-      },
-    });
-  } catch (error) {
-    dispatch({ type: CREATE_PROJECT_LIST_ERROR });
-  }
-};
-
-export const getLists = (accountId, projectId) => async (dispatch) => {
-  dispatch({ type: GET_PROJECT_LISTS_REQUEST });
-
-  try {
-    const { data } = await axios.post('http://localhost:8000/api/dashboard/lists', {
-      accountId,
-      projectId,
-    });
-
-    dispatch({
-      type: GET_PROJECT_LISTS_SUCCESS,
-      payload: {
-        lists: data.lists,
-      },
-    });
-  } catch (error) {
-    dispatch({ type: GET_PROJECT_LISTS_ERROR });
-  }
-};
-
-export const getTasks = (listId) => async (dispatch) => {
-  try {
-    const { data } = await axios.post('http://localhost:8000/api/dashboard/tasks', { listId });
-    console.log('data', data);
-
-    return data;
-  } catch (error) {
-    console.log('error', error);
   }
 };

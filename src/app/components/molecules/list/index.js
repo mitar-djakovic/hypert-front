@@ -3,7 +3,7 @@ import { css } from 'aphrodite';
 import { useDispatch } from 'react-redux';
 import Input from '../../atoms/input';
 import { styles } from './style';
-import { getTasks } from '../../../redux/actions/projects';
+// import { getTasks } from '../../../redux/actions/projects';
 
 const List = ({ name, listId }) => {
   const [inputOpen, setInputOpen] = useState(false);
@@ -14,9 +14,9 @@ const List = ({ name, listId }) => {
     setTaskName(e.target.value);
   };
 
-  useEffect(() => {
-    dispatch(getTasks(listId)).then((res) => setTasks(res.tasks));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getTasks(listId)).then((res) => setTasks(res.tasks));
+  // }, []);
   return (
     <div className={css(styles.list)}>
       <div>
