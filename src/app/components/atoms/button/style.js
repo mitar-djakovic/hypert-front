@@ -12,6 +12,7 @@ export const Button = styled.button`
   font-style: normal;
   font-weight: 500;
   font-family: 'Quicksand', sans-serif;
+  ${({ fullWidth }) => fullWidth && ({ width: '100%' })}
   ${({ disabled }) => (disabled && ({ opacity: '0.9' }))}
   ${({ size }) => {
     if (size === 'big') {

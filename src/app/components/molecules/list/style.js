@@ -37,4 +37,7 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     marginTop: 14,
   },
+  inputContainer: {
+    marginBottom: 10,
+  },
 });

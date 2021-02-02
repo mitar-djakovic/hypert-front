@@ -10,6 +10,9 @@ import {
   GET_SINGLE_PROJECT_REQUEST,
   GET_SINGLE_PROJECT_SUCCESS,
   GET_SINGLE_PROJECT_ERROR,
+  CREATE_PROJECT_LIST_REQUEST,
+  CREATE_PROJECT_LIST_SUCCESS,
+  CREATE_PROJECT_LIST_ERROR,
 } from '../../constants';
 
 export const getProjects = (adminId) => async (dispatch) => {
@@ -66,13 +69,13 @@ export const getSingleProject = (projectId) => async (dispatch) => {
 };
 
 // eslint-disable-next-line consistent-return
-export const createProject = (name, accountId, projects) => async (dispatch) => {
+export const createProject = (name, projectId, projects) => async (dispatch) => {
   dispatch({ type: CREATE_PROJECT_REQUEST });
 
   try {
     const { data } = await axios.post('http://localhost:8000/api/dashboard/project', {
       name,
-      accountId,
+      projectId,
     });
 
     dispatch({
@@ -83,5 +86,27 @@ export const createProject = (name, accountId, projects) => async (dispatch) => 
     });
   } catch (error) {
     dispatch({ type: CREATE_PROJECT_ERROR });
+  }
+};
+
+export const createList = (name, projectId, project) => async (dispatch) => {
+  dispatch({ type: CREATE_PROJECT_LIST_REQUEST });
+  try {
+    const { data } = await axios.post('http://localhost:8000/api/dashboard/list', {
+      name,
+      projectId,
+    });
+
+    const newProject = project;
+    newProject.lists = [...newProject.lists, data.list];
+
+    dispatch({
+      type: CREATE_PROJECT_LIST_SUCCESS,
+      payload: {
+        project: newProject,
+      },
+    });
+  } catch (error) {
+    dispatch({ type: CREATE_PROJECT_LIST_ERROR });
   }
 };

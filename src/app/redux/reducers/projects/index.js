@@ -8,6 +8,9 @@ import {
   GET_SINGLE_PROJECT_REQUEST,
   GET_SINGLE_PROJECT_SUCCESS,
   GET_SINGLE_PROJECT_ERROR,
+  CREATE_PROJECT_LIST_REQUEST,
+  CREATE_PROJECT_LIST_SUCCESS,
+  CREATE_PROJECT_LIST_ERROR,
 } from '../../constants';
 
 const initialState = {
@@ -64,6 +67,19 @@ export default (state = initialState, { type, payload }) => {
     case GET_SINGLE_PROJECT_ERROR:
       return {
         ...state,
+      };
+    case CREATE_PROJECT_LIST_REQUEST:
+      return {
+        ...state,
+      };
+    case CREATE_PROJECT_LIST_SUCCESS:
+      return {
+        ...state,
+      };
+    case CREATE_PROJECT_LIST_ERROR:
+      return {
+        ...state,
+        project: payload.project,
       };
     default:
       return state;

@@ -5,6 +5,11 @@ export const styles = StyleSheet.create({
   inputContainer: {
     position: 'relative',
   },
+  outlineContainer: {
+    borderRadius: 8,
+    boxSizing: 'border-box',
+    border: '2px solid #7480FF',
+  },
   statusBar: {
     boxSizing: 'border-box',
     width: 'calc(100% - 4px)',
@@ -25,7 +30,7 @@ export const styles = StyleSheet.create({
 
 export const Input = styled.input`
   width: 100%;
-  heigh: 40px;
+  // heigh: 40px;
   border: none;
   background: #FBFBFB;
   border: 1px solid #D6E4EC;
@@ -40,9 +45,9 @@ export const Input = styled.input`
   font-size: 14px;
   line-height: 20px;
   color: #1F3AB2;
-  margin-bottom: 24px;
   outline: none;
   
+  ${({ variant }) => (variant === 'outline' ? ({ height: '30px' }) : ({ height: '40px' }))}
   ${({ errorStatus }) => (errorStatus ? ({
     color: '#E25822',
   }) : null)}

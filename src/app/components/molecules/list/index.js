@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { css } from 'aphrodite';
-import { useDispatch } from 'react-redux';
 import Input from '../../atoms/input';
+import Button from '../../atoms/button';
 import { styles } from './style';
-// import { getTasks } from '../../../redux/actions/projects';
 
-const List = ({ name, listId, tasks }) => {
-  const [inputOpen, setInputOpen] = useState(false);
+const List = ({ name, tasks }) => {
   const [taskName, setTaskName] = useState('');
-  // const [tasks, setTasks] = useState(tasks || []);
-  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     setTaskName(e.target.value);
   };
-
+  const handleClick = () => {
+  };
   return (
     <div className={css(styles.list)}>
       <div>
@@ -27,11 +25,15 @@ const List = ({ name, listId, tasks }) => {
         ))}
       </div>
       <div>
-        {inputOpen ? <Input value={taskName} onChange={handleChange} /> : (
-          <h2 onClick={() => setInputOpen(!inputOpen)} role="presentation" className={css(styles.addTask)}>
-            Add card
-          </h2>
-        )}
+        <div className={css(styles.inputContainer)}>
+          <Input
+            variant="outline"
+            onChange={handleChange}
+            placeholder="Task name"
+            value={taskName}
+          />
+        </div>
+        <Button onClick={handleClick} fullWidth title="Add another task" size="medium" />
       </div>
     </div>
   );

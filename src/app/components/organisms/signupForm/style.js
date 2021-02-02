@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   inputContainer: {
     position: 'relative',
     width: 420,
+    marginBottom: 25,
   },
   errorMessage: {
     color: '#E2164B',

@@ -31,6 +31,9 @@ export const styles = StyleSheet.create({
     borderRadius: '4px',
     marginRight: '12px',
   },
+  inputContainer: {
+    marginBottom: 10,
+  },
 });
 
 /*
