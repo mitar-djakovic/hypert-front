@@ -13,7 +13,7 @@ const AppLayout = ({ children }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const adminId = useSelector((state) => state.auth.adminId);
-  console.log('adminId', adminId);
+
   const [addModalOpen, setAddModalOpen] = useState(false);
 
   useEffect(() => {

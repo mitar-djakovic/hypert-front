@@ -6,7 +6,7 @@ import Input from '../../atoms/input';
 import Button from '../../atoms/button';
 import { listSchema } from './validationSchema';
 import { styles } from './styles';
-import { createProjectList } from '../../../redux/actions/projects';
+// import { createProjectList } from '../../../redux/actions/projects';
 
 const ListForm = ({ closeOnClickAway }) => {
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ const ListForm = ({ closeOnClickAway }) => {
         name: '',
       }}
       onSubmit={(values) => {
-        dispatch(createProjectList(values.name, adminId, projectLists))
-          .then(() => closeOnClickAway(false));
+        // dispatch(createProjectList(values.name, adminId, projectLists))
+        //   .then(() => closeOnClickAway(false));
       }}
       validationSchema={listSchema}
     >

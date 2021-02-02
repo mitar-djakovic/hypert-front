@@ -19,6 +19,13 @@ export const styles = StyleSheet.create({
     fontWeight: 500,
     letterSpacing: 1,
   },
+  task: {
+    boxSizing: 'border-box',
+    padding: 15,
+    border: '1px solid #C5C5C5',
+    borderRadius: 2,
+    boxShadow: '0px 10px 20px -15px rgba(32, 56, 117, 0.35)',
+  },
   tasks: {
     margin: '10px 0px',
   },
