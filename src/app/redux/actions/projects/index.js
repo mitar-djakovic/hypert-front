@@ -13,6 +13,9 @@ import {
   CREATE_PROJECT_LIST_REQUEST,
   CREATE_PROJECT_LIST_SUCCESS,
   CREATE_PROJECT_LIST_ERROR,
+  CREATE_TASK_REQUEST,
+  CREATE_TASK_SUCCESS,
+  CREATE_TASK_ERROR,
 } from '../../constants';
 
 export const getProjects = (adminId) => async (dispatch) => {
@@ -108,5 +111,38 @@ export const createList = (name, projectId, project) => async (dispatch) => {
     });
   } catch (error) {
     dispatch({ type: CREATE_PROJECT_LIST_ERROR });
+  }
+};
+
+export const createTask = (name, listId, projectId, project) => async (dispatch) => {
+  dispatch({ type: CREATE_TASK_REQUEST });
+  try {
+    const { data } = await axios.post('http://localhost:8000/api/dashboard/task', {
+      name,
+      listId,
+      projectId,
+    });
+    console.log('project', project);
+    console.log('data', data);
+    const newProject = project;
+
+    newProject.lists.map((list) => {
+      if (list.listId === listId) {
+        const newTasks = list.tasks;
+        return newTasks.push(data.task);
+      }
+      return list;
+    });
+
+    console.log('newProject', newProject);
+    dispatch({
+      type: CREATE_TASK_SUCCESS,
+      payload: {
+        project: newProject,
+      },
+    });
+  } catch (error) {
+    console.log('error', error);
+    dispatch({ type: CREATE_TASK_ERROR });
   }
 };

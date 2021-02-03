@@ -11,6 +11,9 @@ import {
   CREATE_PROJECT_LIST_REQUEST,
   CREATE_PROJECT_LIST_SUCCESS,
   CREATE_PROJECT_LIST_ERROR,
+  CREATE_TASK_REQUEST,
+  CREATE_TASK_SUCCESS,
+  CREATE_TASK_ERROR,
 } from '../../constants';
 
 const initialState = {
@@ -80,6 +83,19 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         project: payload.project,
+      };
+    case CREATE_TASK_REQUEST:
+      return {
+        ...state,
+      };
+    case CREATE_TASK_SUCCESS:
+      return {
+        ...state,
+        project: payload.project,
+      };
+    case CREATE_TASK_ERROR:
+      return {
+        ...state,
       };
     default:
       return state;

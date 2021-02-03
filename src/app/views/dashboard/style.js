@@ -34,6 +34,11 @@ export const styles = StyleSheet.create({
   inputContainer: {
     marginBottom: 10,
   },
+  addNewListContainer: {
+    display: 'flex',
+    flex: '0 0 320px',
+    flexDirection: 'column',
+  },
 });
 
 /*
