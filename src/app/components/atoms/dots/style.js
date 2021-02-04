@@ -19,4 +19,18 @@ export const styles = StyleSheet.create({
     marginRight: 1.5,
     backgroundColor: '#000000',
   },
+  popUpMenu: {
+    position: 'relative',
+  },
+  menu: {
+    backgroundColor: '#FFF',
+    position: 'absolute',
+    right: 0,
+    padding: '20px 40px',
+    zIndex: 1,
+    borderRadius: 4,
+    textAlign: 'left',
+    boxShadow: '0px 1px 7px 0px rgba(32, 56, 117, 0.35)',
+    cursor: 'pointer',
+  },
 });

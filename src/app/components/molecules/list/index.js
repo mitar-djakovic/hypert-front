@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { css } from 'aphrodite';
 import { useDispatch, useSelector } from 'react-redux';
-import Input from '../../atoms/input';
-import Button from '../../atoms/button';
 import { styles } from './style';
-import { createTask, getSingleProject } from '../../../redux/actions/projects';
+import { createTask, getSingleProject, deleteList } from '../../../redux/actions/projects';
 import ButtonSwitch from '../buttonSwitch';
 import Dots from '../../atoms/dots';
 
@@ -21,13 +19,16 @@ const List = ({ name, listId, tasks }) => {
     dispatch(getSingleProject(project.projectId));
   };
 
+  const handleListDelete = () => {
+    dispatch(deleteList(listId, project.projectId, project));
+  };
   return (
     <div className={css(styles.list)}>
       <div className={css(styles.listHeader)}>
         <div>
           <h2 className={css(styles.name)}>{name}</h2>
         </div>
-        <Dots />
+        <Dots onClick={handleListDelete} />
       </div>
       <div className={css(styles.tasks)}>
         {(tasks || []).map((task) => (
@@ -42,14 +43,6 @@ const List = ({ name, listId, tasks }) => {
         ))}
       </div>
       <div>
-        {/* <div className={css(styles.inputContainer)}>
-          <Input
-            variant="outline"
-            onChange={handleChange}
-            placeholder="Task name"
-            value={taskName}
-          />
-        </div> */}
         <ButtonSwitch />
       </div>
     </div>

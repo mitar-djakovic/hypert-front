@@ -14,6 +14,9 @@ import {
   CREATE_TASK_REQUEST,
   CREATE_TASK_SUCCESS,
   CREATE_TASK_ERROR,
+  DELETE_LIST_REQUEST,
+  DELETE_LIST_SUCCESS,
+  DELETE_LIST_ERROR,
 } from '../../constants';
 
 const initialState = {
@@ -94,6 +97,19 @@ export default (state = initialState, { type, payload }) => {
         project: payload.project,
       };
     case CREATE_TASK_ERROR:
+      return {
+        ...state,
+      };
+    case DELETE_LIST_REQUEST:
+      return {
+        ...state,
+      };
+    case DELETE_LIST_SUCCESS:
+      return {
+        ...state,
+        project: payload.project,
+      };
+    case DELETE_LIST_ERROR:
       return {
         ...state,
       };

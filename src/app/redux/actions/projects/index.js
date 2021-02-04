@@ -16,6 +16,9 @@ import {
   CREATE_TASK_REQUEST,
   CREATE_TASK_SUCCESS,
   CREATE_TASK_ERROR,
+  DELETE_LIST_REQUEST,
+  DELETE_LIST_SUCCESS,
+  DELETE_LIST_ERROR,
 } from '../../constants';
 
 export const getProjects = (adminId) => async (dispatch) => {
@@ -96,8 +99,10 @@ export const createList = (name, projectId, project) => async (dispatch) => {
   dispatch({ type: CREATE_PROJECT_LIST_REQUEST });
   try {
     const { data } = await axios.post('http://localhost:8000/api/dashboard/list', {
-      name,
-      projectId,
+      data: {
+        name,
+        projectId,
+      },
     });
 
     const newProject = project;
@@ -122,8 +127,7 @@ export const createTask = (name, listId, projectId, project) => async (dispatch)
       listId,
       projectId,
     });
-    console.log('project', project);
-    console.log('data', data);
+
     const newProject = project;
 
     newProject.lists.map((list) => {
@@ -134,7 +138,6 @@ export const createTask = (name, listId, projectId, project) => async (dispatch)
       return list;
     });
 
-    console.log('newProject', newProject);
     dispatch({
       type: CREATE_TASK_SUCCESS,
       payload: {
@@ -142,7 +145,28 @@ export const createTask = (name, listId, projectId, project) => async (dispatch)
       },
     });
   } catch (error) {
-    console.log('error', error);
     dispatch({ type: CREATE_TASK_ERROR });
+  }
+};
+
+export const deleteList = (listId, projectId, project) => async (dispatch) => {
+  dispatch({ type: DELETE_LIST_REQUEST });
+
+  try {
+    const { data } = await axios.post('http://localhost:8000/api/dashboard/delete-list', {
+      projectId,
+      listId,
+    });
+
+    const newProject = project;
+    newProject.lists = data.lists;
+    dispatch({
+      type: DELETE_LIST_SUCCESS,
+      payload: {
+        project: newProject,
+      },
+    });
+  } catch (error) {
+    dispatch({ type: DELETE_LIST_ERROR });
   }
 };
