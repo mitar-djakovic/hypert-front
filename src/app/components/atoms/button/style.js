@@ -3,15 +3,15 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   border: none;
-  background: #FF426F;
   box-shadow: 0px 0px 1px rgba(117, 131, 142, 0.04), 0px 2px 4px rgba(52, 60, 68, 0.16);
   outline: none;
   cursor: pointer;
-  color: #FBFBFB;
-  border-radius: 8px;
+  border-radius: 4px;
   font-style: normal;
   font-weight: 500;
   font-family: 'Quicksand', sans-serif;
+  ${({ color }) => (color ? ({ color }) : ({ color: '#FBFBFB' }))}
+  ${({ backgroundColor }) => (backgroundColor ? ({ backgroundColor }) : ({ backgroundColor: '#FF426F' }))}
   ${({ fullWidth }) => fullWidth && ({ width: '100%' })}
   ${({ disabled }) => (disabled && ({ opacity: '0.9' }))}
   ${({ size }) => {
