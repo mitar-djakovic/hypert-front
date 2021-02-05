@@ -5,6 +5,7 @@ import {
 } from 'formik';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import { AiOutlineLogin } from 'react-icons/ai';
 import Button from '../../atoms/button';
 import Input from '../../atoms/input';
 import { signupSchema } from './validationSchema';
@@ -62,7 +63,13 @@ const LoginForm = () => {
             )}
           </div>
           <div className={css(styles.buttonContainer)}>
-            <Button title="Log in" type="submit" loading={loading} size="big" />
+            <Button
+              title="Log in"
+              type="submit"
+              loading={loading}
+              size="big"
+              icon={<AiOutlineLogin />}
+            />
           </div>
         </Form>
       )}

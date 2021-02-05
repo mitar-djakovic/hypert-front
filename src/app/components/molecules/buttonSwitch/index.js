@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsFillPlusCircleFill } from 'react-icons/bs';
 import Button from '../../atoms/button';
 
 const ButtonSwitch = () => {
@@ -10,6 +11,7 @@ const ButtonSwitch = () => {
       size="medium"
       color="#2a60e4"
       backgroundColor="#e8ecf8"
+      icon={<BsFillPlusCircleFill />}
     />
   );
 };

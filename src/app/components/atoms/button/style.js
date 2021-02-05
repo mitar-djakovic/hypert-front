@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { StyleSheet } from 'aphrodite';
 /* eslint-disable consistent-return */
 
 export const Button = styled.button`
@@ -38,3 +39,17 @@ export const Button = styled.button`
     });
   }}
 `;
+
+export const styles = StyleSheet.create({
+  buttonContent: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  iconWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 8,
+  },
+});

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { css } from 'aphrodite';
 import { useSelector, useDispatch } from 'react-redux';
+import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { styles } from './style';
 import Modal from '../../components/atoms/modal';
 import ListForm from '../../components/organisms/listForm';
@@ -55,6 +56,7 @@ const Dashboard = () => {
             fullWidth
             title="Add another list"
             size="medium"
+            icon={<BsFillPlusCircleFill />}
           />
         </div>
       </div>
