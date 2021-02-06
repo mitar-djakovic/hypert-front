@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { css } from 'aphrodite';
 import { useDispatch, useSelector } from 'react-redux';
 import { styles } from './style';
-import { createTask, getSingleProject, deleteList } from '../../../redux/actions/projects';
+import { createTask, getSingleProject, deleteList } from '../../../redux/actions/dashboard';
 import ButtonSwitch from '../buttonSwitch';
 import Dots from '../../atoms/dots';
 
 const List = ({ name, listId, tasks }) => {
   const [taskName, setTaskName] = useState('');
   const dispatch = useDispatch();
-  const project = useSelector((state) => state.projects.project);
+  const project = useSelector((state) => state.dashboard.project);
 
   const handleChange = (e) => {
     setTaskName(e.target.value);

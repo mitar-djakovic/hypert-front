@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import SideNav from '../../components/molecules/sidenav';
 import TopNav from '../../components/molecules/topnav';
 import { styles } from './style';
-import { getProjects } from '../../redux/actions/projects';
+import { getProjects } from '../../redux/actions/dashboard';
 import ProjectForm from '../../components/organisms/projectForm';
 import Modal from '../../components/atoms/modal';
 

@@ -8,12 +8,12 @@ import {
 import { DiJsBadge } from 'react-icons/di';
 import { AiFillFolderAdd } from 'react-icons/ai';
 import { styles } from './style';
-import { setActiveProject, getSingleProject } from '../../../redux/actions/projects';
+import { setActiveProject, getSingleProject } from '../../../redux/actions/dashboard';
 
 const SideNav = ({ setAddModalOpen }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const projects = useSelector((state) => state.projects.projects);
+  const projects = useSelector((state) => state.dashboard.projects);
   const adminId = useSelector((state) => state.auth.adminId);
   const lastActiveProject = useSelector((state) => state.auth.lastActiveProject);
   const activeRoute = location.pathname.slice(5);

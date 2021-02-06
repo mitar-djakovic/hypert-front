@@ -5,7 +5,7 @@ import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { styles } from './style';
 import Modal from '../../components/atoms/modal';
 import ListForm from '../../components/organisms/listForm';
-import { getSingleProject, createList } from '../../redux/actions/projects';
+import { getSingleProject, createList } from '../../redux/actions/dashboard';
 import List from '../../components/molecules/list';
 import Input from '../../components/atoms/input';
 import Button from '../../components/atoms/button';
@@ -14,9 +14,9 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const [listName, setListName] = useState('');
   const [addListOpen, setAddListOpen] = useState(false);
-  const project = useSelector((state) => state.projects.project);
+  const project = useSelector((state) => state.dashboard.project);
   const projectId = useSelector((state) => state.auth.lastActiveProject?.projectId);
-  const lists = useSelector((state) => state.projects.project?.lists);
+  const lists = useSelector((state) => state.dashboard.project?.lists);
 
   useEffect(() => {
     if (projectId) {

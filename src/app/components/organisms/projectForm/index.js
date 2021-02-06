@@ -8,7 +8,7 @@ import { styles } from './style';
 import Button from '../../atoms/button';
 import Input from '../../atoms/input';
 import { projectSchema } from './validationSchema';
-import { createProject } from '../../../redux/actions/projects';
+import { createProject } from '../../../redux/actions/dashboard';
 
 const ProjectForm = ({ setAddModalOpen }) => {
   const dispatch = useDispatch();
