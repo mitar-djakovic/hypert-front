@@ -75,13 +75,13 @@ export const getSingleProject = (projectId) => async (dispatch) => {
 };
 
 // eslint-disable-next-line consistent-return
-export const createProject = (name, projectId, projects) => async (dispatch) => {
+export const createProject = (name, accountId, projects) => async (dispatch) => {
   dispatch({ type: CREATE_PROJECT_REQUEST });
 
   try {
     const { data } = await axios.post('http://localhost:8000/api/dashboard/project', {
       name,
-      projectId,
+      accountId,
     });
 
     dispatch({

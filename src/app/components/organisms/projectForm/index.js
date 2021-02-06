@@ -13,7 +13,7 @@ import { createProject } from '../../../redux/actions/dashboard';
 const ProjectForm = ({ setAddModalOpen }) => {
   const dispatch = useDispatch();
   const adminId = useSelector((state) => state.auth.adminId);
-  const projects = useSelector((state) => state.projects.projects);
+  const projects = useSelector((state) => state.dashboard.projects);
   return (
     <Formik
       initialValues={{
